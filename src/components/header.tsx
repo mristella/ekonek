@@ -21,8 +21,7 @@ export default function Header() {
     { name: 'Home', href: '/' },
     { name: 'Resources', href: '/resources' },
     { name: 'Impact', href: '/impact' },
-    { name: 'Stories', href: '/stories' },
-    { name: 'Partners', href: '/partners' }, // <-- Added here
+    { name: 'Stories', href: '/stories' }, // <-- Added here
   ];
 
   return (

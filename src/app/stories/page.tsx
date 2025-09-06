@@ -1,15 +1,15 @@
-import ResourcesPage from "@/components/resources";
+import Stories from "@/components/stories";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-export default function Resources() {
+export default function StoriesPage() {
     return (
         <>
             <Header />
             <main>
-                <ResourcesPage />
+                <Stories />
             </main>
             <Footer />
         </>);
   
-}
+}   

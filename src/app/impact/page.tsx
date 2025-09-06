@@ -1,13 +1,13 @@
-import ResourcesPage from "@/components/resources";
+import Impact from "@/components/impact";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-export default function Resources() {
+export default function ImpactPage() {
     return (
         <>
             <Header />
             <main>
-                <ResourcesPage />
+                <Impact />
             </main>
             <Footer />
         </>);

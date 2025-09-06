@@ -88,12 +88,25 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section ref={aboutRef} className="py-20 text-center px-4 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">About E-Konektado</h2>
-        <p className="text-slate-600 text-lg md:text-xl">
-          A youth-led, open-access, community-driven platform helping educators, advocates, and young changemakers create meaningful impact.
+      <section className="py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">About E-Konektado</h2>
+        <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-10">
+          E-Konektado is a <strong>youth-led, open-access platform</strong> connecting grassroots
+          changemakers with the tools, resources, and networks they need to create lasting community impact.
+          We empower <strong>educators, youth leaders, and organizations</strong> to collaborate,
+          share proven initiatives, and scale their advocacy.
         </p>
-      </section>
+
+
+        <a
+          href="/about"
+          className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition"
+        >
+          Learn More
+        </a>
+      </div>
+    </section>
 
       {/* SDGs Section */}
       <section ref={sdgsRef} className="py-20 px-4">

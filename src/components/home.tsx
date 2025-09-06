@@ -22,22 +22,12 @@ export default function HomePage() {
     { title: "Human Rights Education Brazil", impact: "Educated 5,000 students on fundamental rights" },
   ];
 
-  const sdgs = [
-    { number: "1", title: "No Poverty" },
-    { number: "4", title: "Quality Education" },
-    { number: "5", title: "Gender Equality" },
-    { number: "10", title: "Reduced Inequalities" },
-    { number: "13", title: "Climate Action" },
-    { number: "16", title: "Peace & Justice" },
-  ];
-
   const steps = [
     { title: "Share", description: "Upload educational resources and guides to our open library." },
     { title: "Adapt", description: "Customize resources to fit your community needs." },
     { title: "Show Impact", description: "Document outcomes and inspire other communities." },
   ];
 
-  // Animate sections on scroll
   useEffect(() => {
     const sections = [heroRef, aboutRef, sdgsRef, storiesRef, howItWorksRef];
     sections.forEach((ref) => {
@@ -54,7 +44,6 @@ export default function HomePage() {
     });
   }, []);
 
-  // Auto-rotate stories
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentStory((prev) => (prev + 1) % successStories.length);
@@ -63,13 +52,17 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-white text-slate-800 font-sans overflow-x-hidden">
+    <main className="bg-gradient-to-br from-orange-100 via-white to-green-100 text-slate-800 font-sans overflow-x-hidden relative">
+      {/* Enhanced Gradient Circles */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-300 to-green-200 rounded-full blur-[100px] opacity-40 -z-10"></div>
+      <div className="absolute bottom-20 right-20 w-[28rem] h-[28rem] bg-gradient-to-tr from-green-300 to-orange-300 rounded-full blur-[100px] opacity-30 -z-10"></div>
+      <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-r from-green-200 to-orange-200 rounded-full blur-[120px] opacity-20 -z-10"></div>
+
       {/* Hero Section */}
       <section
         ref={heroRef}
         className="min-h-screen flex flex-col justify-center items-center text-center px-4 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-green-50 opacity-30 -z-10"></div>
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight max-w-4xl">
           <span className="block bg-gradient-to-r from-orange-500 to-green-500 bg-clip-text text-transparent">
             Connected by Youth.
@@ -105,10 +98,20 @@ export default function HomePage() {
       {/* SDGs Section */}
       <section ref={sdgsRef} className="py-20 px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Aligned with SDGs</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-5xl mx-auto text-center">
-          {sdgs.map((sdg) => (
-            <div key={sdg.number} className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-              <div className="text-xl font-bold text-orange-500 mb-2">{sdg.number}</div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
+          {[
+            { number: "4", title: "Quality Education" },
+            { number: "9", title: "Industry, Innovation & Infrastructure" },
+            { number: "10", title: "Reduced Inequalities" },
+            { number: "17", title: "Partnerships for the Goals" },
+          ].map((sdg) => (
+            <div
+              key={sdg.number}
+              className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:scale-105"
+            >
+              <div className="text-2xl font-bold text-orange-500 mb-2">
+                SDG {sdg.number}
+              </div>
               <div className="font-semibold text-slate-700">{sdg.title}</div>
             </div>
           ))}

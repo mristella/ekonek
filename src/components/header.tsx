@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { Menu, X, User } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X, User } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Resources', href: '/resources' },
-    { name: 'Impact', href: '/impact' },
-    { name: 'Stories', href: '/stories' },
+    { name: "Home", href: "/" },
+    { name: "Resources", href: "/resources" },
+    { name: "Impact", href: "/impact" },
+    { name: "Stories", href: "/stories" },
   ];
 
   return (
@@ -29,7 +29,7 @@ export default function Header() {
               height={70}
               className="rounded-md"
             />
-            <span className="ml-2 text-lg font-bold text-black">eKonek</span>
+            <span className="ml-2 text-lg font-bold text-black">E-Konek</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -53,7 +53,11 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg text-black hover:bg-gray-100"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 

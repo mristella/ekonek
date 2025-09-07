@@ -17,6 +17,7 @@ import {
   TrendingUp,
   Handshake,
   Cpu,
+  Lightbulb,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -79,7 +80,9 @@ function SuccessStoriesCarousel() {
   }, []);
 
   const showPrev = () => {
-    setCurrent((prev) => (prev - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length);
+    setCurrent(
+      (prev) => (prev - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length
+    );
   };
   const showNext = () => {
     setCurrent((prev) => (prev + 1) % SUCCESS_STORIES.length);
@@ -124,22 +127,40 @@ function SuccessStoriesCarousel() {
           {/* Stats */}
           <div className="grid grid-cols-2 gap-4 mb-10">
             <div className="text-center p-4 rounded-xl bg-orange-50 border border-orange-100">
-              <div className="text-2xl font-extrabold text-orange-600">{story.participants}</div>
-              <div className="text-xs uppercase tracking-wide text-orange-700/80">Participants</div>
+              <div className="text-2xl font-extrabold text-orange-600">
+                {story.participants}
+              </div>
+              <div className="text-xs uppercase tracking-wide text-orange-700/80">
+                Participants
+              </div>
             </div>
             <div className="text-center p-4 rounded-xl bg-green-50 border border-green-100">
-              <div className="text-2xl font-extrabold text-green-600">{story.communities}</div>
-              <div className="text-xs uppercase tracking-wide text-green-700/80">Communities</div>
+              <div className="text-2xl font-extrabold text-green-600">
+                {story.communities}
+              </div>
+              <div className="text-xs uppercase tracking-wide text-green-700/80">
+                Communities
+              </div>
             </div>
           </div>
         </div>
 
         {/* Controls */}
         <div className="relative z-10 flex justify-center gap-4">
-          <Button onClick={showPrev} variant="outline" size="icon" className="rounded-full">
+          <Button
+            onClick={showPrev}
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+          >
             <ChevronLeft className="w-5 h-5" />
           </Button>
-          <Button onClick={showNext} variant="outline" size="icon" className="rounded-full">
+          <Button
+            onClick={showNext}
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+          >
             <ChevronRight className="w-5 h-5" />
           </Button>
         </div>
@@ -149,17 +170,23 @@ function SuccessStoriesCarousel() {
           <button
             onClick={() => setCurrent(0)}
             aria-label="Show story 1"
-            className={`w-3 h-3 rounded-full transition-all ${current === 0 ? "bg-orange-500 scale-125" : "bg-gray-300"}`}
+            className={`w-3 h-3 rounded-full transition-all ${
+              current === 0 ? "bg-orange-500 scale-125" : "bg-gray-300"
+            }`}
           />
           <button
             onClick={() => setCurrent(1)}
             aria-label="Show story 2"
-            className={`w-3 h-3 rounded-full transition-all ${current === 1 ? "bg-orange-500 scale-125" : "bg-gray-300"}`}
+            className={`w-3 h-3 rounded-full transition-all ${
+              current === 1 ? "bg-orange-500 scale-125" : "bg-gray-300"
+            }`}
           />
           <button
             onClick={() => setCurrent(2)}
             aria-label="Show story 3"
-            className={`w-3 h-3 rounded-full transition-all ${current === 2 ? "bg-orange-500 scale-125" : "bg-gray-300"}`}
+            className={`w-3 h-3 rounded-full transition-all ${
+              current === 2 ? "bg-orange-500 scale-125" : "bg-gray-300"
+            }`}
           />
         </div>
       </div>
@@ -179,7 +206,15 @@ export default function HomePage() {
 
   // Scroll-triggered animations (explicit per-section for clarity)
   useEffect(() => {
-    const sections = [heroRef, aboutRef, impactRef, sdgRef, howRef, storiesRef, ctaRef];
+    const sections = [
+      heroRef,
+      aboutRef,
+      impactRef,
+      sdgRef,
+      howRef,
+      storiesRef,
+      ctaRef,
+    ];
     sections.forEach((ref) => {
       if (ref.current) {
         gsap.from(ref.current.children, {
@@ -215,14 +250,17 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-black mb-4 leading-tight text-white drop-shadow-xl">
-            <span className="block">Connected by Youth.</span>
-            <span className="block bg-gradient-to-r from-yellow-300 via-orange-400 to-green-500 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-300 via-orange-400 to-green-200 bg-clip-text text-transparent">
               Powered by Knowledge.
             </span>
-            <span className="block">Driven by Community.</span>
+            <span className="block bg-gradient-to-r from-white via-orange-200 to-green-500 bg-clip-text text-transparent">
+              Driven by Community.
+            </span>
           </h1>
           <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            E-Konektado is a youth-led, open-access platform empowering communities to create sustainable impact worldwide.
+            An open-access peer-to-peer digital platform that centralizes
+            resources, success stories, and collaboration opportunities for
+            changemakers.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -245,20 +283,33 @@ export default function HomePage() {
       {/* ---------------- About Section (explicit boxes, strong contrast) ---------------- */}
       <section ref={aboutRef} className="relative py-24 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-black mb-8 text-gray-900">About E‑Konektado</h2>
+          <h2 className="text-5xl md:text-6xl font-black mb-8 text-gray-900">
+            About E‑Konektado
+          </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-14">
-            We are a <span className="font-semibold">youth‑led, open‑access digital platform</span> that empowers grassroots changemakers worldwide. We bridge communities with essential knowledge, practical tools, and collaborative networks to create lasting impact.
+            Unlike fragmented social media groups or static repositories,
+            E-Konek integrates dynamic, interactive features: a resource library
+            of ready-to-use modules, digital portfolios highlighting advocates’
+            stories, a partner directory linking schools with NGOs and agencies,
+            and collaboration tools that encourage co-work. Open-source,
+            peer-to-peer learning is built in, making activities reproducible,
+            cost-effective, and adaptable across classrooms, organizations, and
+            community initiatives.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="p-8 bg-white rounded-3xl shadow-xl border border-gray-200 text-left">
               <div className="flex items-center gap-3 mb-3">
-                <Users className="w-6 h-6 text-orange-600" />
-                <h3 className="text-2xl font-bold text-gray-900">Youth‑Led</h3>
+                <Lightbulb className="w-6 h-6 text-orange-600" />
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Powered by Knowledge
+                </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Driven by passionate young leaders creating change from within their communities.
+                E-Konek takes many forms—ready-to-use education modules, digital
+                literacy programs, advocacy toolkits, and success stories from
+                changemakers.
               </p>
             </div>
 
@@ -266,10 +317,13 @@ export default function HomePage() {
             <div className="p-8 bg-white rounded-3xl shadow-xl border border-gray-200 text-left">
               <div className="flex items-center gap-3 mb-3">
                 <BookOpen className="w-6 h-6 text-purple-600" />
-                <h3 className="text-2xl font-bold text-gray-900">Open‑Access</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Open‑Access
+                </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Free resources and tools available to all changemakers, breaking down barriers to knowledge.
+                Free resources and tools available to all changemakers, breaking
+                down barriers to knowledge.
               </p>
             </div>
 
@@ -277,10 +331,13 @@ export default function HomePage() {
             <div className="p-8 bg-white rounded-3xl shadow-xl border border-gray-200 text-left">
               <div className="flex items-center gap-3 mb-3">
                 <Globe className="w-6 h-6 text-emerald-600" />
-                <h3 className="text-2xl font-bold text-gray-900">Community‑Driven</h3>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  Community‑Driven
+                </h3>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                Built by communities, for communities, ensuring locally relevant and sustainable solutions.
+                Built by communities, for communities, ensuring locally relevant
+                and sustainable solutions.
               </p>
             </div>
           </div>
@@ -288,12 +345,18 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- Global Impact (explicit, no maps) ---------------- */}
-      <section ref={impactRef} className="relative py-24 px-4 bg-gradient-to-br from-orange-50 via-white to-green-50">
+      <section
+        ref={impactRef}
+        className="relative py-24 px-4 bg-gradient-to-br from-orange-50 via-white to-green-50"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">Global Impact</h2>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+              Global Impact
+            </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              From local communities to global networks, see how E‑Konektado is creating meaningful change across the world.
+              From local communities to global networks, see how E‑Konektado is
+              creating meaningful change across the world.
             </p>
           </div>
 
@@ -304,7 +367,9 @@ export default function HomePage() {
                 <Globe className="w-10 h-10 text-blue-600" />
               </div>
               <div className="text-4xl font-black text-gray-900 mb-2">25+</div>
-              <div className="text-lg font-semibold text-gray-800 mb-1">Countries</div>
+              <div className="text-lg font-semibold text-gray-800 mb-1">
+                Countries
+              </div>
               <div className="text-sm text-gray-600">Across 5 continents</div>
             </div>
 
@@ -313,8 +378,12 @@ export default function HomePage() {
               <div className="flex justify-center mb-4">
                 <Users className="w-10 h-10 text-rose-600" />
               </div>
-              <div className="text-4xl font-black text-gray-900 mb-2">50,000+</div>
-              <div className="text-lg font-semibold text-gray-800 mb-1">Youth Reached</div>
+              <div className="text-4xl font-black text-gray-900 mb-2">
+                50,000+
+              </div>
+              <div className="text-lg font-semibold text-gray-800 mb-1">
+                Youth Reached
+              </div>
               <div className="text-sm text-gray-600">Active changemakers</div>
             </div>
 
@@ -324,7 +393,9 @@ export default function HomePage() {
                 <MapPin className="w-10 h-10 text-emerald-600" />
               </div>
               <div className="text-4xl font-black text-gray-900 mb-2">200+</div>
-              <div className="text-lg font-semibold text-gray-800 mb-1">Communities</div>
+              <div className="text-lg font-semibold text-gray-800 mb-1">
+                Communities
+              </div>
               <div className="text-sm text-gray-600">Grassroots impact</div>
             </div>
 
@@ -334,7 +405,9 @@ export default function HomePage() {
                 <BookOpen className="w-10 h-10 text-violet-600" />
               </div>
               <div className="text-4xl font-black text-gray-900 mb-2">500+</div>
-              <div className="text-lg font-semibold text-gray-800 mb-1">Resources Shared</div>
+              <div className="text-lg font-semibold text-gray-800 mb-1">
+                Resources Shared
+              </div>
               <div className="text-sm text-gray-600">Open‑access materials</div>
             </div>
           </div>
@@ -351,9 +424,12 @@ export default function HomePage() {
       {/* ---------------- SDGs (explicit cards) ---------------- */}
       <section ref={sdgRef} className="relative py-24 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">Aligned with SDGs</h2>
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+            Aligned with SDGs
+          </h2>
           <p className="text-xl text-gray-700 mb-14 max-w-3xl mx-auto">
-            Our mission directly contributes to achieving the United Nations Sustainable Development Goals.
+            Our mission directly contributes to achieving the United Nations
+            Sustainable Development Goals.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -362,10 +438,15 @@ export default function HomePage() {
               <div className="flex justify-center mb-4">
                 <BookOpen className="w-12 h-12 text-orange-600" />
               </div>
-              <div className="text-4xl font-black text-orange-600 mb-2">SDG 4</div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">Quality Education</h3>
+              <div className="text-4xl font-black text-orange-600 mb-2">
+                SDG 4
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">
+                Quality Education
+              </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Ensuring inclusive and equitable quality education and promoting lifelong learning opportunities for all.
+                Ensuring inclusive and equitable quality education and promoting
+                lifelong learning opportunities for all.
               </p>
             </div>
 
@@ -375,9 +456,12 @@ export default function HomePage() {
                 <Cpu className="w-12 h-12 text-sky-600" />
               </div>
               <div className="text-4xl font-black text-sky-600 mb-2">SDG 9</div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">Industry, Innovation & Infrastructure</h3>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">
+                Industry, Innovation & Infrastructure
+              </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation.
+                Building resilient infrastructure, promoting inclusive and
+                sustainable industrialization and fostering innovation.
               </p>
             </div>
 
@@ -386,10 +470,15 @@ export default function HomePage() {
               <div className="flex justify-center mb-4">
                 <Users className="w-12 h-12 text-fuchsia-600" />
               </div>
-              <div className="text-4xl font-black text-fuchsia-600 mb-2">SDG 10</div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">Reduced Inequalities</h3>
+              <div className="text-4xl font-black text-fuchsia-600 mb-2">
+                SDG 10
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">
+                Reduced Inequalities
+              </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Reducing inequality within and among countries through inclusive policies and practices.
+                Reducing inequality within and among countries through inclusive
+                policies and practices.
               </p>
             </div>
 
@@ -398,10 +487,15 @@ export default function HomePage() {
               <div className="flex justify-center mb-4">
                 <Handshake className="w-12 h-12 text-emerald-600" />
               </div>
-              <div className="text-4xl font-black text-emerald-600 mb-2">SDG 17</div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">Partnerships for the Goals</h3>
+              <div className="text-4xl font-black text-emerald-600 mb-2">
+                SDG 17
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">
+                Partnerships for the Goals
+              </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Strengthening the means of implementation and revitalizing global partnerships for sustainable development.
+                Strengthening the means of implementation and revitalizing
+                global partnerships for sustainable development.
               </p>
             </div>
           </div>
@@ -409,12 +503,18 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- How It Works (explicit steps, connector lines on md+) ---------------- */}
-      <section ref={howRef} className="relative py-24 px-4 bg-gradient-to-r from-slate-50 via-white to-slate-50">
+      <section
+        ref={howRef}
+        className="relative py-24 px-4 bg-gradient-to-r from-slate-50 via-white to-slate-50"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">How It Works</h2>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
+              How It Works
+            </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Three simple steps to join our global community of changemakers and start making a difference.
+              Three simple steps to join our global community of changemakers
+              and start making a difference.
             </p>
           </div>
 
@@ -432,7 +532,8 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Share</h3>
               <p className="text-gray-700 leading-relaxed">
-                Upload educational resources and guides to our open library for communities worldwide to access and benefit from.
+                Upload educational resources and guides to our open library for
+                communities worldwide to access and benefit from.
               </p>
             </div>
 
@@ -446,7 +547,8 @@ export default function HomePage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Adapt</h3>
               <p className="text-gray-700 leading-relaxed">
-                Customize resources to fit your community's unique needs, culture, and local challenges for maximum impact.
+                Customize resources to fit your community's unique needs,
+                culture, and local challenges for maximum impact.
               </p>
             </div>
 
@@ -458,9 +560,12 @@ export default function HomePage() {
               <div className="flex justify-center mb-6">
                 <TrendingUp className="w-12 h-12 text-emerald-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Show Impact</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Show Impact
+              </h3>
               <p className="text-gray-700 leading-relaxed">
-                Document outcomes and success stories to inspire other communities and create a network of positive change.
+                Document outcomes and success stories to inspire other
+                communities and create a network of positive change.
               </p>
             </div>
           </div>
@@ -469,7 +574,9 @@ export default function HomePage() {
 
       {/* ---------------- Success Stories (carousel subcomponent) ---------------- */}
       <section ref={storiesRef} className="py-24 px-4">
-        <h2 className="text-5xl md:text-6xl font-black text-center mb-12 text-gray-900">Success Stories</h2>
+        <h2 className="text-5xl md:text-6xl font-black text-center mb-12 text-gray-900">
+          Success Stories
+        </h2>
         <SuccessStoriesCarousel />
       </section>
 
@@ -500,19 +607,29 @@ export default function HomePage() {
             Ready to Make an Impact?
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of young changemakers creating positive impact in their communities. Your journey starts today.
+            Join thousands of young changemakers creating positive impact in
+            their communities. Your journey starts today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 rounded-2xl shadow-xl">
+            <Button
+              size="lg"
+              className="text-lg bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 rounded-2xl shadow-xl"
+            >
               Sign Up Now <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg border-2 border-gray-300 hover:bg-gray-50 px-8 py-6 rounded-2xl">
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-lg border-2 border-gray-300 hover:bg-gray-50 px-8 py-6 rounded-2xl"
+            >
               Learn More
             </Button>
           </div>
 
-          <div className="mt-12 text-gray-600 text-sm">Free to join • Open source • Community driven</div>
+          <div className="mt-12 text-gray-600 text-sm">
+            Free to join • Open source • Community driven
+          </div>
         </div>
       </section>
     </main>

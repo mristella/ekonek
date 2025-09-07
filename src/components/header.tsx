@@ -3,48 +3,36 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X, User } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
-    
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Resources', href: '/resources' },
     { name: 'Impact', href: '/impact' },
-    { name: 'Stories', href: '/stories' }, // <-- Added here
+    { name: 'Stories', href: '/stories' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center">
             <Image
               src="/assets/logoEkonek.png"
-              alt="E-Konektado"
-              width={40}
-              height={40}
+              alt="ekonek"
+              width={70}
+              height={70}
               className="rounded-md"
             />
-            <span className="text-lg font-bold text-black">E-Konektado</span>
+            <span className="ml-2 text-lg font-bold text-black">eKonek</span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -60,7 +48,7 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Mobile Nav Toggle */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg text-black hover:bg-gray-100"
